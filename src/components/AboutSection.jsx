@@ -1,4 +1,4 @@
-import { Code } from "lucide-react";
+import { Briefcase, Code, User } from "lucide-react";
 
 export const AboutSection = () => {
     return (
@@ -43,35 +43,51 @@ export const AboutSection = () => {
                             <div className="p-3 rounded-full bg-primary/10">
                                 <Code className="h-6 w-6 text-primary" />
                             </div>
+                                <div className="text-left">
+                                    <h4 className="font-semibold text-lg"> Web Development</h4 >
+                                    <p className="text-muted-foreground">
+                                    I build responsive and modern web applications using React, Tailwind CSS, and Django.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
                   
                         <div className="gradient-border p-6 card-hover">
                             <div className="flex items-start gap-4">
                                 <div className="p-3 rounded-full bg-primary/10">
-                                    <Code className="h-6 w-6 text-primary" />
+                                    <User className="h-6 w-6 text-primary" />
                                 </div>
+                                    <div className="text-left">
+                                        <h4 className="font-semibold text-lg"> Problem Solving</h4 >
+                                        <p className="text-muted-foreground">
+                                         I enjoy solving complex problems and continuously improving my logical thinking skills.
+                                        </p>
+                                    </div>
                             </div>
                         </div>
                 
                    
                         <div className="gradient-border p-6 card-hover">
                             <div className="flex items-start gap-4">
-                                <div className="p-3 rounded-full bg-primary/10">
-                                    <Code className="h-6 w-6 text-primary" />
+                                <div className="p-3 rounded-full bg-primary/10">    
+                                    <Briefcase className="h-6 w-6 text-primary" />
                                 </div>
+
+                                  <div className="text-left">
+                                        <h4 className="font-semibold text-lg"> Internship Ready</h4 >
+                                        <p className="text-muted-foreground">
+                                        Open to internship opportunities where I can gain real-world experience and grow as a developer.
+                                        </p>
+                                    </div>
+
                             </div>
                         </div>
-                 
-                </div>    
-
+                    </div>    
                 <div>
-
-                </div>
             </div>
-
         </div>
+    </div>
 
     </section>);
 };
