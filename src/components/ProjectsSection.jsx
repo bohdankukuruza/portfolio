@@ -35,17 +35,16 @@ const projects = [
     images: [],
   },
   {
-    id: "coming-soon",
-    title: "Coming Soon",
-    period: "—",
-    subtitle: "Next project in progress",
+    id: "simple-bank-system",
+    title: "Simple Bank System",
+    period: "2023-2024",
+    subtitle: "Python • OOP • JSON Persistence",
     description:
-      "This slot is reserved for the next strong project. I’ll publish it here once the MVP is ready.",
-    tech: ["In progress"],
+      "Console banking system built with OOP. Supports user registration/login, deposits and withdrawals with balance validation, password updates, and an interest calculator. Data is persisted to a local JSON file.",
+    tech: ["Python", "OOP", "JSON", "CLI"],
     liveUrl: "",
-    githubUrl: "",
+    githubUrl: "https://github.com/bohdankukuruza/simple-bank-system",
     images: [],
-    comingSoon: true,
   },
 ];
 
