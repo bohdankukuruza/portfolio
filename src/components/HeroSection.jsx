@@ -136,7 +136,7 @@ export const HeroSection = () => {
                 isHovered ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
               }`}
             >
-              {["React", "Django", "TypeScript"].map((t, idx) => (
+              {["React", "Django", "Tailwind CSS"].map((t, idx) => (
                 <div
                   key={t}
                   className="rounded-lg border border-border/60 bg-background/55 px-3 py-1.5 shadow-lg backdrop-blur-md"

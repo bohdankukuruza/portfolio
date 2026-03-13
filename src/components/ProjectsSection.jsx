@@ -1,48 +1,52 @@
 // src/components/ProjectsSection.jsx
 import { useState } from "react";
-import { ExternalLink, Github, Sparkles } from "lucide-react";
+import { Github, Sparkles } from "lucide-react";
 
 const projects = [
   {
     id: "django-shop",
     title: "Django E-Commerce Web App",
     period: "2025 – 2026",
-    subtitle: "Full-stack online shop (Django)",
+    subtitle: "Django • PostgreSQL • Auth • Order Flow",
     description:
-      "Full-stack e-commerce web application with a structured Django project architecture (separate apps for users, goods, carts, and orders). Focused on clean backend structure and scalable features.",
-    tech: ["Django", "Python", "PostgreSQL", "Templates", "Auth", "Pillow"],
-    liveUrl: "", // если задеплоишь — вставишь сюда
+      "Full-stack e-commerce web application built with Django using a modular multi-app structure. The project is split into dedicated apps for products, carts, users, and orders, which helped me organize business logic more cleanly and work with a more scalable backend architecture. The catalog supports category-based browsing, search, sorting, sale filtering, and pagination. The cart system works for both authenticated users and guests through session-based storage, with dynamic quantity updates and item removal. The order flow includes stock validation, order and order item creation, cart cleanup after checkout, and profile-based order history. The project also includes PostgreSQL, product image handling, and authentication features including Google sign-in.",
+    tech: [
+      "Django",
+      "Python",
+      "PostgreSQL",
+      "Django Allauth",
+      "Session Cart",
+      "Pillow",
+    ],
     githubUrl: "https://github.com/bohdankukuruza/Web-App",
-    images: [], // можно добавить потом
+    images: [],
   },
   {
     id: "ai-voice-agent",
     title: "AI Restaurant Booking Voice Agent",
     period: "2026 – Present",
-    subtitle: "Twilio • Deepgram • LLM Function Calling",
+    subtitle: "Deepgram • Twilio • OpenAI • Function Calling",
     description:
-      "Voice agent that answers calls, takes bookings, and creates reservations via booking system APIs. Built for low latency with barge-in support, and designed with GDPR disclosure and EU data residency in mind. (Private code)",
+      "Voice AI project focused on restaurant phone bookings and conversational reservation handling. I am building it around a real-time voice-agent architecture that combines speech-to-text, LLM reasoning, tool calling, and text-to-speech for natural phone interactions. The goal is to handle inbound calls, collect booking details, confirm reservation information, and support low-latency conversations with interruption handling. The system is being adapted specifically for restaurant workflows rather than generic support use cases, with a focus on reservation logic, structured data capture, and production-oriented call flow design.",
     tech: [
       "Twilio",
       "Deepgram",
-      "GPT-4o / Grok",
+      "OpenAI",
       "Function Calling",
-      "Vapi / Retell",
-      "MongoDB",
+      "Voice AI",
+      "Restaurant Booking",
     ],
-    liveUrl: "", // если будет демо/лендинг — вставишь
-    githubUrl: "", // приватный — оставляем пустым
+    githubUrl: "",
     images: [],
   },
   {
     id: "simple-bank-system",
     title: "Simple Bank System",
-    period: "2023-2024",
+    period: "2023 – 2024",
     subtitle: "Python • OOP • JSON Persistence",
     description:
-      "Console banking system built with OOP. Supports user registration/login, deposits and withdrawals with balance validation, password updates, and an interest calculator. Data is persisted to a local JSON file.",
+      "Console-based banking application developed in Python with an object-oriented structure. The system supports account registration and login, deposits, withdrawals, password changes, and interest calculation, while persisting user data in JSON. Although it is a smaller project, it gave me strong hands-on practice with class design, state management, file-based persistence, validation, and building clear logic in terminal applications.",
     tech: ["Python", "OOP", "JSON", "CLI"],
-    liveUrl: "",
     githubUrl: "https://github.com/bohdankukuruza/simple-bank-system",
     images: [],
   },
@@ -51,27 +55,22 @@ const projects = [
 function ProjectCard({ project }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  const disabled = !!project.comingSoon;
-
   return (
     <div
-      className={`group relative rounded-2xl border backdrop-blur-sm p-7 shadow-sm transition-all duration-500
-      bg-background/25 border-border/60 hover:border-primary/30 hover:shadow-xl hover:shadow-black/20
-      ${disabled ? "opacity-80" : "hover:-translate-y-2"}`}
+      className="group relative rounded-2xl border border-border/60 bg-background/25 p-7 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-primary/30 hover:shadow-xl hover:shadow-black/20"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Top gradient line */}
-      <div className="absolute top-0 left-7 right-7 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="absolute left-7 right-7 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-      {/* Gradient glow effect */}
       <div
-        className={`pointer-events-none absolute inset-0 rounded-2xl transition-opacity duration-500
-        bg-gradient-to-br from-violet-500/0 via-indigo-500/0 to-purple-500/0
-        ${isHovered && !disabled ? "opacity-100 from-violet-500/10 via-indigo-500/5 to-purple-500/10" : "opacity-0"}`}
+        className={`pointer-events-none absolute inset-0 rounded-2xl transition-opacity duration-500 bg-gradient-to-br from-violet-500/0 via-indigo-500/0 to-purple-500/0 ${
+          isHovered
+            ? "opacity-100 from-violet-500/10 via-indigo-500/5 to-purple-500/10"
+            : "opacity-0"
+        }`}
       />
 
-      {/* Header */}
       <div className="relative">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div className="space-y-1">
@@ -88,15 +87,12 @@ function ProjectCard({ project }) {
           </span>
         </div>
 
-        {/* Divider */}
         <div className="my-5 h-px bg-gradient-to-r from-border/40 via-border to-border/40" />
 
-        {/* Description */}
         <p className="text-sm leading-relaxed text-muted-foreground">
           {project.description}
         </p>
 
-        {/* Tech Stack */}
         <div className="mt-5 flex flex-wrap gap-2">
           {project.tech.map((t) => (
             <span
@@ -109,43 +105,13 @@ function ProjectCard({ project }) {
           ))}
         </div>
 
-        {/* Actions */}
         <div className="mt-7 flex flex-wrap gap-3">
-          {/* Live Demo */}
-          {project.liveUrl ? (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group/btn relative inline-flex items-center gap-2 overflow-hidden rounded-xl
-              border border-violet-500/25 bg-gradient-to-r from-violet-500/15 to-purple-500/15
-              px-4 py-2 text-sm font-bold text-violet-700 dark:text-violet-200
-              shadow-sm transition-all duration-300 hover:border-violet-500/40 hover:shadow-lg hover:shadow-violet-500/10 hover:-translate-y-0.5"
-            >
-              <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-700 group-hover/btn:translate-x-full" />
-              <ExternalLink className="relative h-4 w-4" />
-              <span className="relative">Live Demo</span>
-            </a>
-          ) : (
-            <button
-              disabled
-              className="inline-flex items-center gap-2 rounded-xl border border-border/60 bg-background/20 px-4 py-2 text-sm font-bold text-muted-foreground opacity-70"
-              title="Live demo not available yet"
-            >
-              <ExternalLink className="h-4 w-4" />
-              Live Demo
-            </button>
-          )}
-
-          {/* Code */}
           {project.githubUrl ? (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/btn relative inline-flex items-center gap-2 overflow-hidden rounded-xl
-              border border-border/60 bg-background/30 px-4 py-2 text-sm font-bold text-foreground/80
-              transition-all duration-300 hover:bg-background/45 hover:-translate-y-0.5"
+              className="group/btn relative inline-flex items-center gap-2 overflow-hidden rounded-xl border border-border/60 bg-background/30 px-4 py-2 text-sm font-bold text-foreground/80 transition-all duration-300 hover:bg-background/45 hover:-translate-y-0.5"
             >
               <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/12 to-transparent transition-transform duration-700 group-hover/btn:translate-x-full" />
               <Github className="relative h-4 w-4" />
@@ -155,21 +121,17 @@ function ProjectCard({ project }) {
             <button
               disabled
               className="inline-flex items-center gap-2 rounded-xl border border-border/60 bg-background/20 px-4 py-2 text-sm font-bold text-muted-foreground opacity-70"
-              title="Private / not available"
+              title="Repository not public yet"
             >
               <Github className="h-4 w-4" />
-              View Code
+              Private / In Progress
             </button>
           )}
 
-          {/* Screenshots placeholder like his structure */}
           {project.images?.length > 0 && (
             <button
               type="button"
-              className="group/btn relative inline-flex items-center gap-2.5 overflow-hidden rounded-xl
-              border border-purple-200 bg-gradient-to-r from-purple-50 via-indigo-50/80 to-purple-50
-              px-4 py-2 text-sm font-bold text-purple-700 shadow-sm transition-all duration-300
-              hover:border-purple-300 hover:shadow-lg hover:shadow-purple-200/50 hover:scale-105"
+              className="group/btn relative inline-flex items-center gap-2.5 overflow-hidden rounded-xl border border-purple-200 bg-gradient-to-r from-purple-50 via-indigo-50/80 to-purple-50 px-4 py-2 text-sm font-bold text-purple-700 shadow-sm transition-all duration-300 hover:border-purple-300 hover:shadow-lg hover:shadow-purple-200/50 hover:scale-105"
             >
               <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover/btn:translate-x-full" />
               <Sparkles className="relative h-4 w-4" />
@@ -181,7 +143,6 @@ function ProjectCard({ project }) {
         </div>
       </div>
 
-      {/* Bottom corner decoration */}
       <div className="pointer-events-none absolute bottom-0 right-0 h-24 w-24 overflow-hidden rounded-br-2xl">
         <div className="absolute -bottom-12 -right-12 h-24 w-24 rounded-full bg-primary/0 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:bg-primary/10" />
       </div>
@@ -191,12 +152,11 @@ function ProjectCard({ project }) {
 
 export const ProjectsSection = () => {
   return (
-    <section id="projects" className="relative py-20 sm:py-28 px-4 overflow-hidden">
+    <section id="projects" className="relative overflow-hidden px-4 py-20 sm:py-28">
       <div className="relative mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        {/* Header (как у Nazarii) */}
         <div className="mb-16 space-y-4 text-center animate-fadeInUp">
           <div className="inline-flex flex-col items-center">
-            <h2 className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl mb-3">
+            <h2 className="mb-3 text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
               Featured{" "}
               <span className="ml-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 bg-clip-text text-transparent">
                 Projects
@@ -206,18 +166,16 @@ export const ProjectsSection = () => {
           </div>
 
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground animate-fadeInUp delay-200">
-            Real-world work showcasing my development skills and problem solving
+            Real-world projects that reflect my backend, full-stack, and AI engineering interests
           </p>
         </div>
 
-        {/* Grid */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((p) => (
             <ProjectCard key={p.id} project={p} />
           ))}
         </div>
 
-        {/* Bottom dots */}
         <div className="mt-16 flex justify-center gap-2 animate-fadeIn delay-600">
           <div className="h-1.5 w-1.5 rounded-full bg-primary/80 animate-pulse" />
           <div
@@ -231,7 +189,6 @@ export const ProjectsSection = () => {
         </div>
       </div>
 
-      {/* animations (same names you already use) */}
       <style>{`
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(20px); }
