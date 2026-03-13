@@ -81,7 +81,7 @@ export function JourneySection() {
         <div className="mb-16 space-y-4 text-center animate-fadeInUp">
           <div className="inline-flex flex-col items-center">
             <h2 className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl mb-3">
-              My <span className="ml-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 bg-clip-text text-transparent">Journey</span>
+              My <span className="ml-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 bg-clip-text text-transparent  ">Journey</span>
             </h2>
             <div className="h-1 w-32 rounded-full bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 animate-expandWidth"></div>
           </div>
