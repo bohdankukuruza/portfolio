@@ -3,7 +3,7 @@
 A personal portfolio website built with React and Tailwind CSS. It showcases my projects, technical skills, and background in software engineering.
 
 ## Live
-Deployed site: [View Portfolio](https://your-vercel-link.vercel.app/)
+Deployed site: [View Portfolio](https://portfolio-seven-nu-97.vercel.app/)
 
 ## Features
 - Projects section with detailed project cards
