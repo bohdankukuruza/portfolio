@@ -81,7 +81,7 @@ export const Navbar = () => {
             className="mr-auto group relative text-xl font-black tracking-tight text-foreground transition-colors hover:text-primary"
             aria-label="Go to top"
           >
-            Bohdan <span className="text-gradient">Kukuruza</span>
+            Bohdan <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">Kukuruza</span>
             <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 transition-all duration-300 group-hover:w-full" />
           </button>
 

@@ -31,22 +31,19 @@ export const HeroSection = () => {
             <h1 className="text-5xl font-black tracking-tight md:text-6xl lg:text-7xl">
               <span className="opacity-0 animate-fade-in-delay-1">Bohdan</span>
               <br />
-              <span className="text-gradient opacity-0 animate-fade-in-delay-2">
+              <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
                 Kukuruza
               </span>
             </h1>
 
             {/* underline */}
-            <div className="mx-auto h-1.5 w-24 rounded-full bg-primary/80 opacity-0 animate-fade-in-delay-3 md:mx-0" />
+            <div className="mt-4 h-2 w-24 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
           </div>
 
           {/* Description */}
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg opacity-0 animate-fade-in-delay-3">
-            I’m a second-year Computer Science student at Dublin City University with experience in
-            both frontend and backend development using React and Django.
-            <br />
-            I enjoy building modern web applications and continuously improving my problem-solving
-            and programming skills.
+            Second-year Computer Science student at Dublin City University with experience building full-stack web applications using React and Django.
+            Passionate about creating clean, modern products and continuously improving through real-world projects and problem solving.
           </p>
 
           {/* CTA */}

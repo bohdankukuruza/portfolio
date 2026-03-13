@@ -3,7 +3,7 @@ import { Mail, Linkedin, ArrowRight } from "lucide-react";
 
 export const ContactSection = () => {
   // TODO: replace with your real data
-  const email = "bohdan.kukuruza2@mail.dcu.ie";
+  const email = "kukuruzabohdan22@gmail.com";
   const linkedinUrl = "https://www.linkedin.com/in/bohdan-kukuruza/";
   const locationText = "Dublin, Ireland";
 

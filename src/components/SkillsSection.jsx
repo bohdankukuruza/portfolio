@@ -7,7 +7,6 @@ import {
   Server,
   Wrench,
   LayoutGrid,
-  ShieldCheck,
   GitBranch,
   Boxes,
   Workflow,
@@ -15,59 +14,43 @@ import {
 
 const groups = [
   {
-    title: "Programming Languages",
-    subtitle: "Languages I use across web and backend development",
+    title: "Primary Tech Stack",
+    subtitle: "Core technologies I use most often in full-stack and AI-driven projects",
     skills: [
-      { name: "JavaScript (ES6+)", Icon: Braces },
-      { name: "TypeScript", Icon: Code2 },
       { name: "Python", Icon: Code2 },
-    ],
-  },
-  {
-    title: "Frontend",
-    subtitle: "UI development, components, and styling",
-    skills: [
-      { name: "React", Icon: LayoutGrid },
-      { name: "HTML5", Icon: Code2 },
-      { name: "CSS3", Icon: Code2 },
-      { name: "TailwindCSS", Icon: LayoutGrid },
-    ],
-  },
-  {
-    title: "Backend & APIs",
-    subtitle: "Frameworks, API design, and data formats",
-    skills: [
+      { name: "C", Icon: Code2 },
+      { name: "Aiogram", Icon: Workflow },
       { name: "Django", Icon: Server },
-      { name: "REST API design", Icon: Workflow },
+      { name: "Google Gemini API", Icon: Workflow },
+      { name: "OpenAI API", Icon: Workflow },
+      { name: "Anthropic API", Icon: Workflow },
+      { name: "HTML", Icon: Code2 },
+      { name: "CSS", Icon: Code2 },
     ],
   },
   {
-    title: "Databases",
-    subtitle: "Relational databases and SQL",
-    skills: [
-      { name: "PostgreSQL", Icon: Database },
-      { name: "SQL", Icon: Database },
-    ],
-  },
-  {
-    title: "DevOps & Tools",
-    subtitle: "Developer tooling and environments",
+    title: "Tools",
+    subtitle: "Development tools, environments, and workflow essentials",
     skills: [
       { name: "Git", Icon: GitBranch },
-      { name: "GitHub", Icon: GitBranch },
       { name: "Docker", Icon: Boxes },
-      { name: "Linux", Icon: Wrench },
-      { name: "Vite", Icon: Wrench },
-      { name: "Postman", Icon: Wrench },
+      { name: "PostgreSQL", Icon: Database },
+      { name: "VS Code", Icon: Wrench },
+      { name: "Linux Command Line", Icon: Wrench },
+      { name: "Figma", Icon: LayoutGrid },
     ],
   },
   {
-    title: "Web & Software Engineering",
-    subtitle: "Core concepts and best practices",
+    title: "Other Technologies",
+    subtitle: "Additional technologies I have worked with across projects and coursework",
     skills: [
-      { name: "Auth / Security basics", Icon: ShieldCheck },
-      { name: "Responsive design", Icon: LayoutGrid },
-      { name: "OOP", Icon: Code2 },
+      { name: "JavaScript", Icon: Braces },
+      { name: "SQL", Icon: Database },
+      { name: "Flask", Icon: Server },
+      { name: "NumPy", Icon: Database },
+      { name: "Pandas", Icon: Database },
+      { name: "Java", Icon: Code2 },
+      { name: "React", Icon: LayoutGrid },
     ],
   },
 ];
@@ -75,10 +58,8 @@ const groups = [
 function SkillTile({ name, Icon }) {
   return (
     <div className="group relative rounded-xl border border-border/60 bg-background/35 p-4 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
-      {/* Gradient overlay on hover */}
       <div className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:from-primary/10 group-hover:via-primary/5 group-hover:to-primary/10" />
 
-      {/* Shine */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-xl">
         <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
       </div>
@@ -96,7 +77,6 @@ function SkillTile({ name, Icon }) {
         </div>
       </div>
 
-      {/* Corner accent */}
       <div className="pointer-events-none absolute right-0 top-0 h-8 w-8 overflow-hidden rounded-tr-xl">
         <div className="absolute -right-4 -top-4 h-8 w-8 rotate-45 bg-primary/0 transition-all duration-300 group-hover:bg-primary/15" />
       </div>
@@ -108,30 +88,28 @@ export const SkillsSection = () => {
   const ordered = useMemo(() => groups, []);
 
   return (
-    <section id="skills" className="relative py-20 sm:py-28 px-4 overflow-hidden">
-      {/* optional subtle overlay, НЕ перекрывает звёзды */}
-      
-
+    <section id="skills" className="relative overflow-hidden px-4 py-20 sm:py-28">
       <div className="relative mx-auto max-w-6xl">
-        {/* Header (как у Nazarii) */}
-        <div className="text-center mb-14">
-          <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-foreground mb-3">
+        <div className="mb-14 text-center">
+          <h2 className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl mb-3">
             Technical
-            <span className="ml-3 text-gradient">Skills</span>
+            <span className="ml-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 bg-clip-text text-transparent">
+              Skills
+            </span>
           </h2>
-          <div className="mx-auto h-1 w-28 rounded-full bg-primary/80" />
-          {/* можешь включить описание если хочешь */}
-          {/* <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
-            A quick overview of tools and concepts I use in development.
-          </p> */}
+
+          <div className="mx-auto mt-4 h-2 w-24 rounded-full bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500" />
+
+          <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
+            A snapshot of the technologies, tools, and concepts I use across web development,
+            backend engineering, and AI-powered applications.
+          </p>
         </div>
 
-        {/* Groups grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:gap-10">
-          {ordered.map((group, groupIndex) => (
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
+          {ordered.map((group) => (
             <div key={group.title} className="group relative">
-              <div className="relative h-full rounded-2xl border border-border/60 bg-background/30 backdrop-blur-md p-8 shadow-sm transition-all duration-500 hover:border-primary/30 hover:bg-background/40 hover:shadow-xl">
-                {/* Top gradient line */}
+              <div className="relative h-full rounded-2xl border border-border/60 bg-background/30 p-8 shadow-sm backdrop-blur-md transition-all duration-500 hover:border-primary/30 hover:bg-background/40 hover:shadow-xl">
                 <div className="absolute left-8 right-8 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                 <div className="mb-6 space-y-2">
@@ -143,17 +121,14 @@ export const SkillsSection = () => {
                   </p>
                 </div>
 
-                {/* Divider */}
                 <div className="mb-6 h-px bg-gradient-to-r from-border/40 via-border to-border/40" />
 
-                {/* Tiles */}
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
                   {group.skills.map((skill) => (
                     <SkillTile key={skill.name} name={skill.name} Icon={skill.Icon} />
                   ))}
                 </div>
 
-                {/* Bottom corner decoration */}
                 <div className="pointer-events-none absolute bottom-0 right-0 h-24 w-24 overflow-hidden rounded-br-2xl">
                   <div className="absolute -bottom-12 -right-12 h-24 w-24 rounded-full bg-primary/0 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:bg-primary/10" />
                 </div>
@@ -162,13 +137,18 @@ export const SkillsSection = () => {
           ))}
         </div>
 
-        {/* Bottom dots (как у него) */}
-        <div className="mt-14 flex justify-center gap-2 select-none">
+        <div className="mt-14 flex select-none justify-center gap-2">
           <div className="h-1.5 w-1.5 rounded-full bg-primary/80 animate-pulse" />
-          <div className="h-1.5 w-1.5 rounded-full bg-primary/60 animate-pulse" style={{ animationDelay: "0.2s" }} />
-          <div className="h-1.5 w-1.5 rounded-full bg-primary/40 animate-pulse" style={{ animationDelay: "0.4s" }} />
+          <div
+            className="h-1.5 w-1.5 rounded-full bg-primary/60 animate-pulse"
+            style={{ animationDelay: "0.2s" }}
+          />
+          <div
+            className="h-1.5 w-1.5 rounded-full bg-primary/40 animate-pulse"
+            style={{ animationDelay: "0.4s" }}
+          />
         </div>
       </div>
     </section>
   );
-};  
+};
