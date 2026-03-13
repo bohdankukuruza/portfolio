@@ -1,6 +1,7 @@
 // src/components/HeroSection.jsx
 import { useState } from "react";
 import { ArrowDown, MessageCircleMore, Download } from "lucide-react";
+import myPhoto from "../assets/profile.jpeg";
 
 export const HeroSection = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -62,7 +63,7 @@ export const HeroSection = () => {
 
             {/* CV: добавь файл в /public и поменяй href */}
             <a
-              href="/Bohdan-Kukuruza_CV.pdf"
+              href="/CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-border/70 bg-background/35 px-6 py-2 font-medium text-foreground transition-all duration-300 backdrop-blur-md hover:bg-background/55 hover:scale-105 active:scale-95"
@@ -125,12 +126,11 @@ export const HeroSection = () => {
                 }`}
                 style={{ animationDuration: "6s" }}
               />
-              <div className="relative text-center">
-                <div className="text-5xl font-black tracking-tight text-foreground">BK</div>
-                <div className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-                  React • Django
-                </div>
-              </div>
+              <img
+                src={myPhoto}
+                alt="Bohdan Kukuruza"
+                className="relative z-10 h-full w-full object-cover"
+              />
             </div>
 
             {/* tech badges */}
